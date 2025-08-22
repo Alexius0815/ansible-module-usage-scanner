@@ -242,13 +242,13 @@ def output_json(files, fqcn_map):
                 "role": role
             })
     print(json.dumps(data, indent=2))
-    print(f"\nTotal unique modules: {len(unique_modules)}")
-    print("\nModule summary by role:")
+    print(f"\nTotal unique modules: {len(unique_modules)}", file=sys.stderr)
+    print("\nModule summary by role:", file=sys.stderr)
     for role in sorted(role_to_modules):
         rolename = role if role else "Not in role"
-        print(f"Role: {rolename}")
+        print(f"Role: {rolename}", file=sys.stderr)
         for mod in sorted(role_to_modules[role]):
-            print(f"  {mod}")
+            print(f"  {mod}", file=sys.stderr)
 
 def output_csv(files, fqcn_map):
     import csv
